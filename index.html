@@ -10,20 +10,33 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url(https://wallpapers.com/images/featured-full/4k-minecraft-n7ckb8r4jz3a844t.jpg)
+            background: url('https://wallpapercave.com/wp/wp2565006.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
         }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(17, 17, 17, 0.8);
-            padding: 10px 20px;
+            background: rgba(17, 17, 17, 0.9);
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .items-right a {
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+        .menu button {
+            background: #444;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
             color: white;
-            margin-left: 10px;
-            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .menu button:hover {
+            background: #666;
         }
         .content {
             display: flex;
@@ -34,20 +47,25 @@
         .addon-box {
             background: rgba(60, 42, 20, 0.9);
             border: 1px solid #6b4d2e;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 15px;
-            margin: 10px;
-            width: 250px;
+            margin: 15px;
+            width: 280px;
             text-align: center;
+            transition: transform 0.3s;
+        }
+        .addon-box:hover {
+            transform: scale(1.05);
         }
         .addon-box img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 8px;
         }
         .addon-title {
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-top: 10px;
+            font-weight: bold;
         }
         .addon-version {
             color: #76ff76;
@@ -60,29 +78,54 @@
         }
         .addon-download a {
             background: #222;
-            padding: 5px 10px;
+            padding: 7px 12px;
             border-radius: 5px;
             text-decoration: none;
             color: white;
+            transition: background 0.3s;
+        }
+        .addon-download a:hover {
+            background: #555;
+        }
+        .hidden {
+            display: none;
         }
     </style>
+    <script>
+        function showAddons(version) {
+            document.querySelectorAll('.addon-list').forEach(list => {
+                list.classList.add('hidden');
+            });
+            document.getElementById(version).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
     <div class="navbar">
-        <div class="items-left">
-            <h2>LabyWolf Addons</h2>
-        </div>
-        <div class="items-right">
-            <a href="https://discord.gg/QbVt3p8kF7">Discord</a>
+        <h2>Neocraftr Add-ons</h2>
+        <div class="menu">
+            <button onclick="showAddons('labymod3')">LabyMod 3</button>
+            <button onclick="showAddons('labymod4')">LabyMod 4</button>
         </div>
     </div>
 
-    <div class="content">
+    <div id="labymod3" class="content addon-list">
         <div class="addon-box">
-            <img src="Magicwolfmc.png" alt="GrieferGames">
-            <div class="addon-title">Magicwolf</div>
-            <div class="addon-version">1.20.2</div>
-            <p>This add-on helps you to get a much better gaming experience on magicwolfmc.de.</p>
+            <img src="images/griefergames.png" alt="GrieferGames">
+            <div class="addon-title">MagicWolfmc</div>
+            <div class="addon-version">1.1</div>
+            <p>Enhances your experience on Magicwolfmc.de.</p>
+            <div class="addon-download">
+                <a href="#">Download</a>
+            </div>
+        </div>
+
+    <div id="labymod4" class="content addon-list hidden">
+        <div class="addon-box">
+            <img src="images/autocraft.png" alt="AutoCraft">
+            <div class="addon-title">AutoCraft</div>
+            <div class="addon-version">2.0</div>
+            <p>Automates crafting in LabyMod 4.</p>
             <div class="addon-download">
                 <a href="#">Download</a>
             </div>
