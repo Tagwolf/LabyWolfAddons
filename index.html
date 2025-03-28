@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LabyWolf Addons</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/fontawesome.min.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="items-left">
+                <select class="version-selector">
+                    <option value="labymod4.html">LabyMod 4</option>
+                    <option value="index.html" selected>LabyMod 3</option>
+                </select>
+            </div>
+            <div class="items-right">
+                <a class="pull-right" style="color: var(--color-dark-green)" href="https://Tagwolf"><i class="fa-brands fa-github"></i>GitHub</a>
+                <a class="pull-right" style="color: var(--color-dark-purple)" href="https://discord.gg/QbVt3p8kF7"><i class="fa-brands fa-discord"></i>Discord</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="addons-list"></div>
+        </div>
+
+        <script>
+            window.addonListUrl = '/api/addons/addons-laby3.json';
+        </script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
