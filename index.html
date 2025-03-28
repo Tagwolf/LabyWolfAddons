@@ -1,34 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LabyWolf Addons</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="fontawesome.min.css">
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="items-left">
-                <select class="version-selector">
-                    <option value="labymod4.html">LabyMod 4</option>
-                    <option value="index.html" selected>LabyMod 3</option>
-                </select>
-            </div>
-            <div class="items-right">
-                <a class="pull-right" style="color: var(--color-dark-green)" href="https://Tagwolf"><i class="fa-brands fa-github"></i>GitHub</a>
-                <a class="pull-right" style="color: var(--color-dark-purple)" href="https://discord.gg/QbVt3p8kF7"><i class="fa-brands fa-discord"></i>Discord</a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabyWolf Addons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAGsAqAMBIgACEQEDEQH/xAAbAAADAAMBAQAAAAAAAAAAAAAEBQYCAwcAAf/EAD0QAAIBAgUBBQYFAwMCBwAAAAECAwQRAAUSITFBEyJRYXEGgZGhsfAUMkJSwTPR4SMk8ZLCFRYlNDVicv/EABoBAAIDAQEAAAAAAAAAAAAAAAMEAgUGAQD/xAAzEQABAwMBBgQFBAIDAAAAAAABAAIDBBEhEgUTMUFRYXGBkcEiMqGx8ELR4fEjUgYUFf/aAAwDAQACEQMRAD8A5lNRPE9rXHiMDtHcXAxSqismw+OApqIPugsflhcOTTWEhKKaeWmlBhaxPQ738rdcFzVUs1QkyKY2UWUDBcVAig6lux+WMJEWlRCwuTwMduCVKxATSgkat7DtU7NYiWdrbNbjb1wx9l8reerebs99yA3Cg3x8p5EiyKSsSO3aEqA3nsBiu9kJaWPKKipAXt0Qu0ZO426eWA6yLkeCiI2SPJecLc0qU0UtFJGrAmyP+pTbck9fHfGilu1XF2jSKjPqAUhT4A9OnXnBFVXR1VOjRoEKgylGYgi23PFt+m/pjXFTxtDLK+tgqW1XA0km/F7nfz64Rcdb8hV7JHAC66DkCusDCWS/7UO5AwlzIzz1FTTPSiKJRq1MOAOgtt0+OMfZyvnRP9yVEY7sUliSPU3O336Ms4naSRbkWCbgDnnriz2a68m5I4Z8V7aUu7iMtuOFsjpKaelVUpStOhDqB3d/juff78Yy5TD266izlV1R8bnj6X8MAQ5pUQ08cSOe7uL/AE9MO6CrjrCp27RLFo/24sZS6NxBSsLY5mBw4qQiy2ry2q/E1NIssa3NidVzbkC4vhgM9qGlaL8JGIQuzLsVXoR54qZuwnfQzqWX8w8MBzZPTESEvpuLLtxjr6iOY6pDa3RQ3NRALQAEd0oGfRUlJ2opCK2W5CNwB4/fOMsykMpjqiReSIHjGj2koEilphFfR2Wm58je/wA8AtUmReyeQs0IAAtawtt9MKwSl1aGg4yk69zm0rmuGRb8+qRVcYGZTXRihOob83t/nAuctSvQfh5lvtqUji31vbB2YgGuhkN7MLXHkcA5imoKxUabWt0v4YltQGOqBH6m/bHsibGmBgGrNiojKJUizR4KlmEUseiw2ZtxZOdifDGWeZcyU0RpySKZjHI1gOTYH5fe2CIqMrnq2cxlbyIw23B4ucG1tZTzPVU1IUlawYM66hsANj984r5LteHBX7W/q5KaqKVniSYLYeGPYzo6x1klaaMziRbXJsARwfTc7Y9hgB3JMFzeYQWYV4lmX8MzLGm4I5JwVBm6rC3br/rBbq37j/fCZgq/qHxwwoKRaqQqP6g372OENAyuMe5zsLKkq56Z9MxEkZ3Iba3mMZ1Epr8xVYFLxd1VFt7dT88CVEeio0Oxva1jiq9jso7atEy2LopYX/LuCB9R98xe4MaXlcJNiETV60qKXLIFV7IDqG/kD5m1/jiniyaVaYRxtcgd4LhZ7PrFItdnOsPLr0RLyQL2G3pbFdT5hFPQTuiaalU2ik/UeAb9RuMAuWtARWRsEZ19ErejlpY1jYl1ew1A3F+vw64wjjhE6CQAU2pVkLDSRby++mGcUks8Qn/00kBJI2vp6gb7CxH+MKswlhWUFIz2YO5PeA2vcA+WFqe8stj3ScMUJcBK6zVTiJ4FQUspkpp76Qpvc2488fMznWkiKyd68RY97ceWJ7K8ykCLrBSlSQINJOq5G5234FveMGU9RllXXrCGEUEiHtpCvmAF33Ukk7nBYjLBUDQbm/qLr1aaeaNzHZHI8M8Af7WFFVyT1LgkMiqNl353xQx0oWmjqopHSWLeRRsSAT4cHE+MvrstzGpp6epBiTRIZA99Q37pS9r+N/Kw3xu/GSRRPHJVNRLKCBKYDJHGB+npv0HOH9pVglqNMBxjzwlKGm3UAEnzZ+5TmmzDQzSPbQNOpi3G3ODpM3Sqi7WkdJENrtfn09MREdRk8tUqTZpXTILntHIhiUgdVFvDwONOaZfnGUT008FU09HK5M+mPQoUqe9ZfUm58sV76c+KfiIY0DpdV1TVNWyuzSa1jAVLW7txvf4YWyRaKubY96MH4H/OFtHmmiB1pgio47hfvW8/njDL5a38WGqQ2iUkMSdzttglJdlU0k8wqGtjMscjrciiM11KsMyHTof81r2vjVL2EkffRrXBLg7A+VunpgrMY2NA2pSNgwuOd8DQFeyVm7vkSSOfP1P3vi425HdsUg5Ej3SOwydL2JB7UZdHVPDJD3HXdtIB2HH08MKxRrHIk0KgBu6bbWPht52xR18kRqEcA6AwJ898IzmMMOYNFKmilc21ne3g233vhJ8XwWC09O7T8LuCQZxEKKcKsbKH7x2su/QY9irzCghq0RHDFY+A+55J2x7A4buZdG3q5hH3f0g35vh3kcSBJZzKAiLcoQLkDAaweQxpeTvFYmJQbDpfEyNQsptGg6kbFGWZqiYAajqYnpizymimovZySbshFVuWVe7awJAHncAnwOw52xK5UjZnVw0l1jLbIW2FgN/fa9v4x1WamJSlpHHdjVWN+LW6G5252wnUvsWs81x5AbdLvZ3JkpdALfoufUWw7qQkgVTYxp3ipF7n/i/TGusWaClmelVjIFsPAC4wvfNnio5e3h7KpC7WIIJPXnbnA42y1LtEeXFIvrdFPpcbZyU3ZGLuGdF2ACnlfTw564CNP+JnUMO4VJNh0vYX6cjwxjl2ewTRslUYROF/qC66vXix25GGVCsTTtKjpLYBQ62sf48Bg7qZ2zmuknbYcsfnFQ37JnYIPmkdXl00cHZtpWDVaMEG733bbe/A+WJvKYhDPWxtuJNLHSNzydv+r5YtvaaCorp6Ompl2szM7nYcdfHnbA9dQ0uWUlwVkqah1QySAXawubeVgMK0tfnetGlxOOfb+fJTkLpIjCfl/pA5XXAO5kVkRtjZrgjzBueMUUSw1kDLOiyxMLmJwCp67jjphNRLQNaSQ9mVYsEc90j+fvnnBeZViUlPHJB36h9oYtekS/usbdBv7sALpDLrkz3U6VsgAaSlvtTmtJQUUlHEVjC/mMQUgMRZUYAcHa/GNXsFUVUVXFl9XM3Y5h2ryREgqrleh5sQALXOJ+JZ8ziqc3lQz0+Wo+h9VmkkABPaeI22O2FH/mjM+1WSnEELp+Vo49x6Hn54egGm55px8ZccYH3Vbl57Nlib+opKafQ2/jDStSbtKeUakCSi4IsNO3XwxzWX2gzeUXaul5O3vvffAZrKyTvmolJ/cGNvlbEix28Eg5IJo2uBueK7NUVbV0VnlEg7MxqQQQANjx5g4XUIWWlUIS7cENsAPEHw3G22EvsDVGTJ2Rrkw1Dpubmxs/8A3HDylDrJUIqgAMSCt/Xp5W5xoNoje7N1eBWZom7ivdGTfl3Q7ZPVFHkmQRRILh/3Djb48nE7nOWrFKjIl1bm55xXzUkterR9u2gC0aRd0eptzhVNSyy5aDUR6JF6dbYpIaoOHxq91tvZfaSRGoIZpHOopY3vuw2+ePYBy2ORa9YkJDMbXHPN9ugOw3x7C88xp5CBzyihQWYTiKMwR/1H2b/64BhFxccXtjXIb1DHUWa+5PXBUEivNEiIt12IQbt5nDwGEy59zlVvsBlZqczarMrQmmOlWUHusw2N7EWtrFjh1Bn1ZS5vVSEiWn7XSIiTpsLC6npsL7ePXGOX0RyfJmnUjXIokVxqAcGwW4PIAkH/AEnC5HSN0Ij1aebnAqOlNbORy4fuk62ZscZceSra/N1qo0WkEkYI7zNs3HGE86BwkZdIlLAlnNgttzjVDPHIl1O/hgLM5gZljBJCjV6Y2tPQxUcWiH15rGiV884dLew5I+oqcsZdFJCyyCx1MCDbxIuRip9myYKCIix1Atvxve38YhhQ1MMC1LxPocFlJ8PG3h54tqBhFBHGCLKgX4C2Ml/ySYClZE1+q7r8b8Bw+qv4HCSoMgYG2FuFuJvdac89ooMvqHpIE7eu7oENuh3v8CdsSlXT1cqNWzVdqrt20RK/dUdbeA442xQ6QueVlQI0QvHftwbkKLB7eewHlvzgUUFXmsNFDSRFYW1StM4CoGIAsPS1v7DGcjIijA8Pz8ynCScJbSVM0sKiYWZDpZv3Y1ZtI81KkDuxi73dBtyANvDFfU+ykEVB/t5G/EoNRZ/yv47Djy/nEXUXZFuOOcO0tQyfIPBXVKWmPTzVJQlJPZQ09G170zROL2vsRv4H1xGUOWQiG9TAhk8zcYbUdRJTAFGsPkfXywbBVIuTVlFJTq5qENprgGPbnj+cOshF78B1RiADYZPRKEpKeO2iCJb8aVGNsVCczhqUp0Msca/6pjs2gefhgRHaCNYqRkmjU21lrnBmR5h+BlqosvlKzzqDULpvxfi9/wBx48cT3TRe5PZdcHWFgifZCFaWfMKZSSoMcgLcm6kfVcPyUSv1yEASAWuNj43+Hn/OEuSDs81lvsZKYc+Tf5w6qGMVTBJpHOmxJAxfU7TNs8s7ELF17RDtMu5G3snWWyxxB+1SxHB8rWt4dPDAFTpd227jc+ePQMhGoENfoN9Pv9+M5FYRsSLDGMhOrFuCspGnUp7M4TTSJP3tMi3vxxz9Dj2N/tI3/p6D9CMSD69Pr8cexsqLZrJ4GyP5pSSvIdpbyXHZjo24fDL2bpfxVdCsUyIoIaZmcIQlxqsW2vYk8HCL88up2OK32ApyK+WvWSO8C9mImPeZn2v5bA74pZHGNhKuXG66Hnyfh6CCCKcygpofSdYXQQo3I24OJ+npjUGRV5CM4Fhvbpg2rqqjtEqBcMi2Tu3I8iOvW98HUz5VUt2odKGQxESKWsoJ2YAW4tq48RtiOy6+OkBEnHke/dVleHTNDWDCUyUE8OYGjVwJxJpL3On1v4Ww4ybJIopBVVemRzZkUi6i/BN+cblpe2NTUySBGqG06oW1XTVfY8b2UegwJm2eyUmYKlPHHIo0r2QW1zYE7jg2sMF2rtWaoaIIX5t8VvDr39u6QpaYMdqcPBG5oXnzGVnuOwhDKSdjY8c3/V5HnG410UdOrvqALCFmAF1flj527vFvfhb+NhlkqZ23fTZdQA7GPc7eJJNtuPkR64JEtPTqifibMZAGuwJ/SfA+Vz8b4zm7AaGqw53TemMc07TySag7CMXYhNItbrwcUFO6xqAihVX8qjCDJfZ6R2WavYxJYHsge81t9/D3fLHyiz+mkmMNRpisuosPy+nl9PTC0zDLfRmyKz4eKrMxgkp8vlkkAUPC5sDuNjzjmcsPa9L2W40/zi4r6jXlk5Llx2DBTq8v84kqPV2iGwsZVBHiDz7uMSpSGklmF6WR0ZDmnKUTEooXx4wSa6igpFFTIASukgKT08sHZZl8VYHWoUhLWBA7wtubX2wtzLJHWojgUGRZ3tELd4nwvxffp8sa/Z9RBVMFO/DhnxXo6yZtQZeN8fZTsEgjGhKrrq7qf3tgmhmalqDUCGaoYoVPdtf6+GHLez/4bLjVNHplVrNDp3tfob4XdtURmySyxj9v+MWAoTexGFaT1jo4wbZP0W6lzurWrVoqeKNjeMq3e5PutxilFVJKhWRlDKQy6RbyP8H44ncgy9SqVbsWFu7fq3j8cPJlYwtoXvBbrbqRv/jEf+3HA4MaMA/2qybZNRVP3znAY8z0TRA34iNr9o+kaWG9+eo9cESxSSmOU1KokbW0AgnUOnHmPD1wrp6kCnQREaH3Aay9NiP+MHUqE5isqnS1Qmh2P5kNrgjbxt/jfGcLNzVPYepXY3AtaeoWGbwqYWQDusNUYPgf+MfcZ10LGWR0XulQxN72HJF8exrtiVbRTlhPyk/uqHaMbxPdg4rhM8YSd1/abe/HR/ZiiX/wCmiDymKaISOx7rLITfu7cee4+mJ/JaOgzGopYFgHaoweRitiQu5v4i9h78WdfmUFE0azMEEhuAF6W8PDpjJVcpIDAMrQvkNrBekdaZoqem7iJuw5ufPx998Z0sFL2wm0Kkg47twOePA/e2J6lzH8WWlmYK7MdS34Hh57YaU9R54RIexBINlQpKNhYAcbcAX6Yla2aKaqEpB1NLqAO1yfsYe19fCINVND2YVd1LnvG9r4kldXrZXvqRQBtvbj5YlTR2Jd0Qiip2nCF5XiJtsQpBve+3yxZezMVMKOOqCIZHN+1UW69Pv44i4nNXmcMcMc0khWwWNCSfd9cdGy+jGX5Qj1LhnjH9ONgdybEauL38MQrGvMQAHj5qbGnj0RdVMgy+pZ20BYXJa9rd0456CaeRxCUdmsdJba3BPrt9MW1dPE+U1IQkho+CO8P7jfELTh4aiWSptfcLubFfLw3wCjjLGuDvRelJwi6OunjjkpxdYpY7lC4IHTb5Y3RyyRQTWcamjDX31KQQP5wupDE89z2bsJdIFje1/v44dVVIrdusFRFpZhqOncKOnyxaQ0MtQ4mJt7WvwH3Xo4JJh8IvZbKO4ncqwFqpwR5WUH5XxtepjKIqBHSNiynYkE+HwwN2kUcc0ryRoRITbVdjqHPusMIczkah0FJw4k71lHHlvi82RTthle2UWfy9Mqwo2CIkPGU6zCsD0koub6fpiYlkVzey6r82x8lzNZ4ZbE/lP0woWSSRSyqdK9caHWLWKbkcHCxVZkLf7Jo+kcjL/P84axtiQyavaKKdU0k6g1j4Ab43yzz1H52LL+0mw+HHyxnquAmY2TUMjd0FRUWgxPAjLaKTTcG4tyB4cWG+G1K8ESdpIwuu5K72+/TEpk0jwu4kOgNp0W8eOmH0dpCGUi55Hj/b3YrNpU7wWyM4uGfEY9ln52Fkjm8r3HnlOFlErXiLNfbvC1wObjpj2MssKoksSBAHUyd3y2A++cewnDCSwG59EGxthcm9lKoU8lXo09s0emNj67/wAYZy0c06GorJWCgaVLi5PlbDFcroqXNQtPAEDcgE/YxhmjEQQLfYk3GC1o3dQWDiiGQPs9vNJKqkakYLJE2omwCjUbn0xnBWSJTqAdJ6Dkr5Yp8qUJPDp20UDuvkx5PzOJHNVWngmWBQg3HdGBA6sFRZJqOkpt+NSsCpFKdmVzp94t8b4aezns/PVJrlPZUuprOSLkg2IXx4O5wtqIY0yfIkRbKaEObHli/Jxf5XFGMvpwFA7Ne55XBJ+pxJsd/h5ZPopwNEryDwFz6IvLKSiyyHRRQohOzMd2Yebc9eOPAY0Z1OsOXiKHSoL27osOpJ+ONshJ0X+/u2E3tK7K0CKbLrba3hbCT4pWiz3f6/UEj7I0zXMYWnt9V8WoIUsHbcLpU/ptyQeowPWUcdTyER2Fz+09d8aVYkRC/wCgY3Qkh1HQ8+eH5DvKhokz8o9/3C5I4PmaJOw9/wCEty/LtOZoAhjkS8ndW+odLfEY1ZjLWUX/ALhJYtYv3hp1DFBS/wDysKfp0Wt5bYdZnlNBmFNUy1lMskkIZY2uQVFr9MMU21P/ADap8LxdpNu+L26I0TtxK+MdVzGXMu2fR+pjZV6k+WNElHmWZSNpQaIGKNK790H+cYZEis9XMwvJHESjH9JuBt8cZdvLFKGjkZT2hXY9Ma5xAcCQmSdWSsHoYaZ7Cb8QdN2b9IO/GMpP6bKLAaTsBh/lMaP7NV0ropkbltIv+nrhFKAssqjgcYnhRI5pdGpWJ5ojZ12I9RjWa3sf6nc9BjEi1wON/rg3J4IqmsEU6B42V7qf/wAnCh6qIJ4BBR5q3bRyM1tDC4HBsb46jlaUEuWVbTVTpUpZoVCXDfPxPutffHO/Y6KN81rIZI0eNY2srqGAswtziyi7srKNgF2GEtqM/wADZO6SklDpSy3AJvSvoVZHs620nUNgd9zj2AIv6pXewsQL4+Yz8OrIB+iBr04X/9k=) no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 17, 17, 0.8);
+            padding: 10px 20px;
+        }
+        .items-right a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .addon-box {
+            background: rgba(60, 42, 20, 0.9);
+            border: 1px solid #6b4d2e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .addon-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+        .addon-title {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .addon-version {
+            color: #76ff76;
+        }
+        .addon-download {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .addon-download a {
+            background: #222;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="items-left">
+            <h2>LabyWolf Addons</h2>
+        </div>
+        <div class="items-right">
+            <a href="https://discordapp.com/users/401822969791250453">Discord</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="addon-box">
+            <img src="images/griefergames.png" alt="GrieferGames">
+            <div class="addon-title">GrieferGames</div>
+            <div class="addon-version">1.17.6</div>
+            <p>This add-on helps you to get a much better gaming experience on GrieferGames.net.</p>
+            <div class="addon-download">
+                <a href="#">Download</a>
             </div>
         </div>
-
-        <div class="content">
-            <div id="addons-list"></div>
+        <div class="addon-box">
+            <img src="images/neoessentials.png" alt="NeoEssentials">
+            <div class="addon-title">NeoEssentials</div>
+            <div class="addon-version">1.6.0</div>
+            <p>Adds some useful features to LabyMod.</p>
+            <div class="addon-download">
+                <a href="#">Download</a>
+            </div>
         </div>
-
-        <script>
-            window.addonListUrl = '/api/addons/addons-laby3.json';
-        </script>
-        <script src="js/index.js"></script>
-    </body>
+        <div class="addon-box">
+            <img src="images/autocraft.png" alt="AutoCraft">
+            <div class="addon-title">AutoCraft</div>
+            <div class="addon-version">2.0.1</div>
+            <p>Automates the crafting process in LabyMod.</p>
+            <div class="addon-download">
+                <a href="#">Download</a>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
